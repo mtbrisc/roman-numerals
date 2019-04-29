@@ -1,7 +1,9 @@
-#How to Build
-Start the server
+How to Build
+============
+Start the server - forthcoming
 
-#Engineering & Testing Methodology
+Engineering & Testing Methodology
+=================================
 For roman numeral reference, used: <https://en.wikipedia.org/wiki/Roman_numerals>
 
 |Symbol|I|V|X|L|C|D|M|
@@ -10,7 +12,8 @@ For roman numeral reference, used: <https://en.wikipedia.org/wiki/Roman_numerals
 
 Created node endpoint `/romannumeral?query={integer}` according to the general spec, in addition to the front end specs & methodology. Focused tests mainly around Front End coverage, but added some basic for the endpoint
 
-###Front End Specs + Methodology
+Front End Specs + Methodology
+-----------------------------
 Since this test was tailored to front end, here's a list of the requirements as well as methodology:
 
 - **Create a React based UI which takes a number, and converts it to roman numerals (1-255) and displays it**
@@ -32,12 +35,17 @@ Since this test was tailored to front end, here's a list of the requirements as 
 - **Optionally you can choose to run a service in the backend (node or java) to do the conversion, or leverage client side implementation of conversion functionality (your choice)** -
     * Although I've specialized & gotten a lot of experience over the years in Front-end, also really enjoy building and working within Full-stack & backend contexts, so build a node backend that feeds the computation to the front-end via API endpoint
 
-#Package Layout
+Package Layout
+==============
 `public` - compiled assets, styles
+
 `src` - dev files
+
 `server` - backend service
+
 `test` - test files
 
-#Dependency Attribution
+Dependency Attribution
+======================
 
 Forthcoming
