@@ -5,6 +5,11 @@
  * seem to be a bit debated, but this format for both
  * input and output made the most sense to me
  **/
+
+// Legacy browser support
+import repeatLegacySupport from '../legacy/repeatLegacySupport';
+repeatLegacySupport();
+
 const overline = "\u0305"; //UTF-8 overline
 const upperBound = 1000000;
 const lowerBound = 1;

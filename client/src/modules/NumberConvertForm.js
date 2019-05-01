@@ -4,6 +4,10 @@ import { Translate } from 'react-localize-redux';
 // Clientside converter for now, could swap for serverside converter
 import intToRomanNumeral from '../utilities/intToRomanNumeral';
 
+// Legacy browser support
+import isIntegerLegacySupport from '../legacy/isIntegerLegacySupport';
+isIntegerLegacySupport();
+
 // Validation error types
 const ABOVE_MAX = "ABOVE_MAX";
 const BELOW_MIN = "BELOW_MIN";
