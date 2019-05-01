@@ -1,7 +1,22 @@
 How to Build
 ============
-Start the server - forthcoming
+Clientside - React APP
+----------------------
+inside **./client/** folder:
+`npm install`
 
+then choose from the following:
+|dev start|basic start|test|build|prepare for deployment|
+|---|---|---|---|---|
+|`npm develop`|`npm start`|`npm test`|`npm build`|`npm pre-production`|
+
+
+Serverside - Node + Express
+---------------------------
+inside **./server/** folder:
+`npm install`
+`npm start`
+___
 Engineering & Testing Methodology
 =================================
 For roman numeral reference, used: <https://en.wikipedia.org/wiki/Roman_numerals>
@@ -10,42 +25,45 @@ For roman numeral reference, used: <https://en.wikipedia.org/wiki/Roman_numerals
 |---|---|---|---|---|---|---|---|
 |Value|1|5|10|50|100|500|1000|
 
-Created node endpoint `/romannumeral?query={integer}` according to the general spec, in addition to the front end specs & methodology. Focused tests mainly around Front End coverage, but added some basic for the endpoint
+And decided to use Vinculum bar notation to support numbers from `1 - 1000000`
 
-Front End Specs + Methodology
------------------------------
-Since this test was tailored to front end, here's a list of the requirements as well as methodology:
+In terms of methodology and focus, mainly focused on the react app, and even ended up calling the conversion function clientside since it runs immediately on input and gives a good user experience that way - but did also make a node endpoint `/romannumeral?query={integer}` according to the general spec. However, since most of focus was for the React UI - here's more details about that:
+
+Clientside App Specs & Description
+----------------------------------
 
 - **Create a React based UI which takes a number, and converts it to roman numerals (1-255) and displays it**
-   * Since the first spec / primary focus is the React based UI, originally stubbed out the API response - treating it as a black box before building out the functionality in Node for that
+   * As stated above, decided to expand the range from (1-100000). The UI that seemed elegant and good in this instance was on any input, immediately render the corresponding output
 - **Should support full input validation in the UI** -
-    * In UI Layer, initially using browser input type validation, as well as some clientside validation & descriptive messaging
+    * Used a combination of semantic html properties and custom event listener error checking to ensure input field accepts correct type, and stays within desired range
 - **Should support localization of 2 (or more) languages for the UI, with some mechanism to switch locals** -
-    * Language dropdown to change UI elements, without reloading the page is a good experience for the end user - so passing `lang` down through the state gives the desired functionality 
-
+    * Built language dropdown selector in header, updates components reloading the page
+    * Localization managed in JSON for easy testing, scalability
 - **Should support accessibility in the UI (keyboard controls)** -
-    * Follows <https://www.w3.org/WAI/> recommendations, allowing keyboard, mouse, high contrast etc with a minimal and complete UI
-
+    * Follows <https://www.w3.org/WAI/> recommendations, allowing keyboard, mouse, high contrast etc with a minimal and complete UI. The number input field can optionally be interacted with by using arrow keys, as can the langauge dropdown.
 - **Should support UI automation testing (framework your choice)** -
-    * As part of the UI Automation testing - chose to use Jest (automated testing framework with assert) & Pupetteer (headless chrome + true visual testing tool). This suite I wanted to provide both headless and full visual output
-
+    * As part of the UI Automation testing - chose to use Jest & Enzyme, some of the most robust and well support React testing frameworks.
+    * UI tests run when any of the following are called: `npm test` `npm pre-production` `npm develop`
 - **Should support Javascript Unit testing (framework you choice)** -
-    * The JS unit testing also done through asserts, running before build to ensure the app / service could be plugged into a CI/CD pipeline without any bad commits. Catch issues on local
-
-- **Optionally you can choose to run a service in the backend (node or java) to do the conversion, or leverage client side implementation of conversion functionality (your choice)** -
-    * Although I've specialized & gotten a lot of experience over the years in Front-end, also really enjoy building and working within Full-stack & backend contexts, so build a node backend that feeds the computation to the front-end via API endpoint
+    * The JS unit testing also done using jest, and offer upper lower boundary testing, type testing, as well as a range of known / expected values.
+    * Javascript Unit tests also run via `npm test` `npm pre-production` `npm develop`
+- **Optionally you can choose to run a service in the backend (node or java) to do the conversion, or leverage client side implementation of conversion functionality (your choice)** 
+    * Although in this instance, UI made alot of sense for giving a fast, immediately returned value to the end user - built a sibling service within **./server/** that uses the same computation module that I made for the clientside app
 
 Package Layout
 ==============
-`public` - compiled assets, styles
+`client` - clientside react app
+* `config` - configs for react tests, environment
+* `public` - compiled assets, styles
+* `scripts` - scripts for hot module reloaded start, test, build
+* `src` - contains main react app as well as react components, modules, localization, tests, and pre-processed styles
 
-`src` - dev files
-
-`server` - backend service
-
-`test` - test files
+`server` - lightweight Node + Express app that runs http server on 8080
 
 Dependency Attribution
 ======================
+For the roman numeral function, no external dependencies were needed, and reference for the approach was obtained via Wikipedia
 
-Forthcoming
+For the React app, used the standard React app recommended build tooling, including eslint, webpack, node-sass, sass-loader, babel, jest, enzyme and for the localizations state management used react-localize-redux
+
+For the Node + Express app, only dependecy (besides node) was express
