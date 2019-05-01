@@ -1,0 +1,301 @@
+/* Easter egg module */
+
+.logo-wrap{
+  display:block;
+  bottom:0;
+  overflow:hidden;
+  width:400px;
+  left:50%;
+  -webkit-transform:translate(-50%,calc(100% - 40px));
+  transform:translate(-50%,calc(100% - 40px));
+    -webkit-transition:all 200ms ease;
+    transition:all 200ms ease;  
+  height:80px;
+  position:fixed;
+  left:50%;
+  bottom:0;  
+
+  &:hover{
+    -webkit-transform:translate(-50%,0);
+    transform:translate(-50%,0);  
+  }
+.logo{
+  display:inline-block;
+  margin:0 auto;
+  width:200px;
+  height:75px;
+  position:relative;
+  overflow:visible;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight:bold;
+  font-size:20px;
+  div{
+    display:inline-block;
+    box-sizing:border-box;
+  }
+  .conveyor-belt{
+    position:absolute;
+    border:none;
+    background:#fff;
+    top:50%;
+    height:50%;
+    width:100%;
+    border-radius:50px;
+    left:0;
+    -webkit-transition:all 200ms ease;
+    transition:all 200ms ease;
+    &:after{
+      content:'';
+      z-index:1;
+      background:#fff;
+      position:absolute;
+      left:50%;
+      top:50%;
+      -webkit-transform:translate(-50%,-50%);
+      transform:translate(-50%,-50%);
+      width:calc(100% - 6px);
+      height:calc(100% - 6px);
+      border-radius:50px;
+    }
+    overflow:hidden;
+    .segment{
+      overflow:hidden;
+      &:after{
+        box-sizing:border-box;
+        content:'';
+        border:3px dashed #000;
+        width:100%;
+        height:100%;
+        display:block;
+        top:50%;
+        left:50%;
+        position:absolute;
+        -webkit-transform:translate(-50%,-50%);
+        transform:translate(-50%,-50%);        
+      }
+      position:absolute;
+      &:nth-child(4),
+      &:nth-child(3){
+        width:calc(100% - 30px);
+        height:3px;
+        left:50%;
+        -webkit-transform:translateX(-50%);
+        transform:translateX(-50%);
+        &:after{
+          width:400%;
+          -webkit-animation:moveForward 10s linear infinite;
+          -moz-animation:moveForward 10s linear infinite;
+          animation:moveForward 10s linear infinite;          
+        }
+        &:before{
+          content:'';
+          position:absolute;
+          left:50%;
+          top:50%;
+          width:90%;
+          height:100%;
+          background:#fff;
+          -webkit-transform:translate(-50%,-50%);
+          transform:translate(-50%,-50%);  
+        }
+      }
+      &:nth-child(4){
+        bottom:0;
+        &:after{
+          -webkit-animation:moveForward 10s reverse linear infinite;
+          -moz-animation:moveForward 10s reverse linear infinite;
+          animation:moveForward 10s reverse linear infinite;             
+        }
+      }
+      &:nth-child(2),
+      &:nth-child(1){
+        width:38px;
+        height:38px;
+        border-radius:50%;
+        overflow:visible;
+        &:after{
+          border-radius:50%;
+          -webkit-animation:spin 4s linear infinite;
+          -moz-animation:spin 4s linear infinite;
+          animation:spin 4s linear infinite;          
+        }
+        left:0;
+        right:auto;
+      }
+      &:nth-child(2) {
+        left:auto;
+        right:0;
+      }
+    }
+  }
+  .black-box{
+    position:absolute;
+    top:50%;
+    width:40px;
+    height:40px;
+    background-color:#000;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://web.resource.org/cc/' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' xmlns:sodipodi='http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd' xmlns:inkscape='http://www.inkscape.org/namespaces/inkscape' width='300.00000pt' height='300.00000pt' id='svg1313' sodipodi:version='0.32' inkscape:version='0.42.2' sodipodi:docbase='C:%5CDocuments and Settings%5CLukas%5CDesktop%5CWikipedia' sodipodi:docname='lambda_lc.svg'%3E%3Cg inkscape:label='Layer 1' inkscape:groupmode='layer' id='layer1'%3E%3Cg transform='matrix(0.237384,0.000000,0.000000,-0.237384,65.48462,354.2623)' id='g8'%3E%3Cpath d='M 967.00000,288.00000 L 1003.0000,288.00000 C 1003.0000,182.66667 986.00000,106.00000 952.00000,58.000000 C 918.00000,10.000000 875.00000,-14.000000 823.00000,-14.000000 C 781.00000,-14.000000 740.66667,1.6666667 702.00000,33.000000 C 663.33333,64.333333 628.66667,149.33333 598.00000,288.00000 L 512.00000,676.00000 L 214.00000,0.00000000 L 25.000000,0.00000000 L 453.00000,922.00000 C 430.33333,1041.3333 403.00000,1129.6667 371.00000,1187.0000 C 339.00000,1244.3333 299.33333,1273.0000 252.00000,1273.0000 C 214.00000,1273.0000 181.00000,1258.6667 153.00000,1230.0000 C 125.00000,1201.3333 109.00000,1156.3333 105.00000,1095.0000 L 69.000000,1095.0000 C 71.000000,1193.0000 90.666667,1271.3333 128.00000,1330.0000 C 165.33333,1388.6667 212.00000,1418.3333 268.00000,1419.0000 C 304.00000,1419.0000 338.00000,1404.3333 370.00000,1375.0000 C 402.00000,1345.6667 430.00000,1295.0000 454.00000,1223.0000 C 478.00000,1151.0000 515.00000,1002.3333 565.00000,777.00000 L 636.00000,460.00000 C 664.66667,328.66667 694.66667,241.00000 726.00000,197.00000 C 757.33333,153.00000 795.33333,130.66667 840.00000,130.00000 C 914.66667,130.00000 957.00000,182.66667 967.00000,288.00000 z ' id='path10' style='fill:%23ffffff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size:auto 80%;
+    background-position:center center;
+    background-repeat:no-repeat;
+    left:50%;
+    -webkit-transform:translate(-50%,calc(-100% + 4px));
+    transform:translate(-50%,calc(-100% + 4px));   
+  }
+  .object{
+    opacity:0;
+    -webkit-transition:all 200ms ease;
+    transition:all 200ms ease;
+    font-size:14px;
+    width:24px;
+    height:24px;
+    text-align:center;
+    line-height:24px;
+    background-color:#00bbff;
+    left:50%;
+    position:absolute;
+    top:14px;
+    animation:objPath 4s linear infinite;    
+    letter-spacing:-2px;
+    &:before,
+    &:after{
+      box-sizing:border-box;
+      position:absolute;
+      width:100%;
+      margin-left:-1px;
+      left:50%;
+      top:50%;
+      -webkit-transform:translate(-50%,-50%);
+      transform:translate(-50%,-50%);
+    }
+  }
+  &:hover{
+      .object{
+          opacity:1;
+      }
+  }
+  .object:before{
+    animation:beforeTransition 4s linear infinite; 
+    content:'10';
+  }
+  .object:after{
+    animation:afterTransition 4s linear infinite; 
+    content:'X';
+  }
+}
+  
+@keyframes beforeTransition {
+  0% {
+    opacity:1;
+  }
+  40% {
+    opacity:1;
+  }
+  42% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}  
+@keyframes afterTransition {
+  0% {
+    opacity:0;
+  }
+  40% {
+    opacity:0;
+  }
+  42% {
+    opacity:1;
+  }
+  100% {
+    opacity:1;
+  }
+}
+@keyframes objAfter {
+  0% {
+    transform: translate(calc(-50% - 80px),-50px);
+  }
+  10% {
+    transform: translate(calc(-50% - 80px),0);
+  }
+  40% {
+    transform: translate(-50%,0);
+    background-color:#00bbff;
+  }
+  42% {
+    background-color:#ff4488;
+  }
+  75% {
+    transform: translate(calc(-50% + 90px),0);
+  }
+  85% {
+    transform: translate(calc(-50% + 118px),18px) rotate(90deg);
+  }
+  100% {
+    transform: translate(calc(-50% + 140px),60px) rotate(200deg);
+    background-color:#ff4488;
+  }
+}
+
+
+@keyframes objPath {
+  0% {
+    transform: translate(calc(-50% - 80px),-50px);
+  }
+  10% {
+    transform: translate(calc(-50% - 80px),0);
+  }
+  40% {
+    transform: translate(-50%,0);
+    background-color:#00bbff;
+  }
+  42% {
+    background-color:#ff4488;
+  }
+  75% {
+    transform: translate(calc(-50% + 90px),0);
+  }
+  85% {
+    transform: translate(calc(-50% + 118px),18px) rotate(90deg);
+  }
+  100% {
+    transform: translate(calc(-50% + 140px),60px) rotate(200deg);
+    background-color:#ff4488;
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: translate(-50%,-50%) rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: translate(-50%,-50%) rotate(360deg);
+  }
+}
+@keyframes spin { 
+  100% {
+    -webkit-transform: translate(-50%,-50%) rotate(360deg);
+    transform: translate(-50%,-50%) rotate(360deg);
+  }
+}
+
+@-moz-keyframes moveForward {
+  100% {
+    -moz-transform: translate(-10%,-50%);
+  }
+}
+@-webkit-keyframes moveForward {
+  100% {
+    -webkit-transform: translate(-10%,-50%);
+  }
+}
+@keyframes moveForward { 
+  100% {
+    -webkit-transform: translate(-10%,-50%);
+    transform: translate(-10%,-50%);
+  }
+}  
+}

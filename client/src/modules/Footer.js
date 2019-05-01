@@ -1,10 +1,11 @@
 import React from 'react';
 import { Translate } from 'react-localize-redux';
+import AnimatedLogo from '../components/AnimatedLogo';
 
 function Footer() {
     return (
-        <footer className="p-5">
-            <div className="container" style={{textAlign:"center"}}>
+        <footer className="p-5 text-center">
+            <div className="container">
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                     <Translate id="footer.documentation">Documentation</Translate>
                 </a>|
@@ -15,6 +16,7 @@ function Footer() {
                     <Translate id="footer.vinculumReference">Vinculum Reference</Translate>
                 </a>
             </div>
+            <AnimatedLogo />
         </footer>
     )
 }

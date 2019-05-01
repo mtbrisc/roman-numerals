@@ -62,9 +62,10 @@ header{
   width:$container-width;
   max-width:$container-max-width;
   margin:0 auto;
+  position:relative;
 }
 .primary{
-  min-height:60vh;
+  min-height:50vh;
 }
 .fixed{
   z-index:2;
@@ -110,6 +111,10 @@ input{
       @include focusState($danger);
     }
   }
+}
+
+.text-center{
+  text-align:center;
 }
 
 .roman-numeral-output{
