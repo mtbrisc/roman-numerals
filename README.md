@@ -6,9 +6,11 @@ inside **./client/** folder:
 `npm install`
 
 then choose from the following:
-|dev start|basic start|test|build|prepare for deployment|
-|---|---|---|---|---|
-|npm develop|npm start|npm test|npm build|npm pre-production|
+* `npm develop` - run UI/Unit tests & run hot module reloading development server
+* `npm start` - run hot module reloading development server
+* `npm test` - run UI/Unit tests
+* `npm build` - create production bundle build of app
+* `npm pre-production` - run UI/Unit tests + build app
 
 Serverside - Node + Express
 ---------------------------
