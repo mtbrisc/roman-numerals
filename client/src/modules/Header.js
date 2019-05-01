@@ -4,7 +4,7 @@ import LanguageChanger from '../components/LanguageChanger';
 
 function Header() {
     return (
-        <header className="fixed p-5 mb-10">
+        <header className="fixed p-3 mb-10">
             <div className="container">
                 <span className="mainTitle"><Translate id="mainTitle">Roman Numeral Converter</Translate></span>
                 <div className="pull-right">
