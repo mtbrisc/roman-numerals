@@ -1,0 +1,86 @@
+{
+    "languages": [
+        {
+            "name" : "English",
+            "code" : "en"
+        },
+        {
+            "name": "Français",
+            "code": "fr"
+        },
+        {
+            "name": "日本人",
+            "code": "jp"
+        }
+    ],
+    "languageSelector" : {
+        "en" : "Language Selector",
+        "fr": "Sélecteur de langue",
+        "jp": "言語セレクタ"
+    },
+    "mainTitle": [
+        "Roman Numeral Converter",
+        "Convertisseur de chiffres romains",
+        "ローマ数字コンバータ"
+    ],
+    "form" : {
+        "instructions" : {
+            "pre" : [
+                "Enter a whole number greater than 0 and less than or equal to",
+                "Entrer un nombre supérieur à 0 et inférieur ou égal à",
+                "0より大きく、以下の数値を入力してください"
+            ],
+            "post" : [
+                "to see Roman Numeral output",
+                "voir la sortie en chiffres romains",
+                "ローマ数字の出力を表示する"
+            ]
+        },
+        "validation" : {
+            "aboveMax" : [
+                "Number is too large, reset to max",
+                "Le nombre est trop grand, réinitialisé au maximum",
+                "数値が大きすぎて、最大許容値にリセットされています。"
+            ],
+            "nonNumeric" : [
+                "Please enter a number to view conversion",
+                "S'il vous plaît entrer un nombre pour voir la conversion",
+                "コンバージョンを表示するには番号を入力してください"
+            ],
+            "belowMin" : [
+                "Number too small, resetting to min",
+                "Nombre trop petit, remise au minimum",
+                "数値が小さすぎます。最小値にリセットしています"
+            ]
+        },
+        "label" : {
+            "inputField" : [
+                "Input",
+                "Numéro d'entrée",
+                "入力番号"
+            ],
+            "outputField": [
+                "Output",
+                "Numéro de sortie",
+                "出力番号"
+            ]
+        }
+    },
+    "footer" : {
+        "documentation" : [
+            "Documentation",
+            "Documentation",
+            "ドキュメンテーション"
+        ],
+        "romanNumerals": [
+            "Roman Numerals",
+            "Chiffres romains",
+            "ローマ数字"
+        ],
+        "vinculumReference": [
+            "Vinculum Reference",
+            "Vinculum Référence",
+            "ビンクラムレファレンス"
+        ]
+    }
+}
