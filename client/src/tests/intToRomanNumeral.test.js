@@ -1,4 +1,4 @@
-import intToRomanNumeral from 'utilities/intToRomanNumeral';
+import intToRomanNumeral from '../utilities/intToRomanNumeral';
 
 /* Functional Tests for the intToRomanNumeral function (not UI, just function) */
 

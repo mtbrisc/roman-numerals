@@ -6,17 +6,17 @@ inside **./client/** folder:
 `npm install`
 
 then choose from the following:
-* `npm develop` - run UI/Unit tests & run hot module reloading development server
-* `npm start` - run hot module reloading development server
-* `npm test` - run UI/Unit tests
-* `npm build` - create production bundle build of app
-* `npm pre-production` - run UI/Unit tests + build app
+* `npm run develop` - run UI/Unit tests & run hot module reloading development server
+* `npm run start` - run hot module reloading development server
+* `npm run test` - run UI/Unit tests
+* `npm run build` - create production bundle build of app
+* `npm run pre-production` - run UI/Unit tests + build app
 
 Serverside - Node + Express
 ---------------------------
 inside **./server/** folder:
 `npm install`
-`npm start`
+`npm run start`
 ___
 Engineering & Testing Methodology
 =================================
@@ -44,10 +44,10 @@ Clientside App Specs & Description
     * Follows <https://www.w3.org/WAI/> recommendations, allowing keyboard, mouse, high contrast etc with a minimal and complete UI. The number input field can optionally be interacted with by using arrow keys, as can the langauge dropdown.
 - **Should support UI automation testing (framework your choice)** -
     * As part of the UI Automation testing - chose to use Jest & Enzyme, some of the most robust and well support React testing frameworks.
-    * UI tests run when any of the following are called: `npm test` `npm pre-production` `npm develop`
+    * UI tests run when any of the following are called: `npm run test` `npm run pre-production` `npm run develop`
 - **Should support Javascript Unit testing (framework you choice)** -
     * The JS unit testing also done using jest, and offer upper lower boundary testing, type testing, as well as a range of known / expected values.
-    * Javascript Unit tests also run via `npm test` `npm pre-production` `npm develop`
+    * Javascript Unit tests also run via `npm run test` `npm run pre-production` `npm run develop`
 - **Optionally you can choose to run a service in the backend (node or java) to do the conversion, or leverage client side implementation of conversion functionality (your choice)** 
     * Although in this instance, UI made alot of sense for giving a fast, immediately returned value to the end user - built a sibling service within **./server/** that uses the same computation module that I made for the clientside app
 

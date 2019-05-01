@@ -33,8 +33,11 @@ const numeralMap = {
 };
 
 const intToRomanNumeral = (num) => {
-    if (!num || isNaN(num) || num < lowerBound || num > upperBound) {
+    if (!num || isNaN(num) || num < lowerBound) {
         return "";
+    }
+    if(num > upperBound) {
+        num = upperBound;
     }
     let orderedNumerals = Object.keys(numeralMap).sort((a, b) => b - a);
     let romanNumeralStr = "";

@@ -1,8 +1,8 @@
 import React from 'react';
 import Enzyme, { mount, shallow } from 'enzyme';
-import Main from 'Main';
+import Main from '../Main';
 import Adapter from 'enzyme-adapter-react-16';
-import globalTranslations from "localizations/global.json";
+import globalTranslations from "../localizations/global.json";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -18,7 +18,7 @@ describe("Main app (UI Testing)", () => {
         const wrapper = mount(<Main />);
 
         globalTranslations.languages.forEach((el, i) => {
-            it('renders correct data for after language selector changed to ' + el.name, () => {
+            it('renders correct data after language changed to ' + el.name, () => {
                 wrapper.find('.language-selector').getDOMNode().value = el.code;
                 wrapper.find('.language-selector').simulate('change');
                 const checkLocalization = () => {

@@ -16,7 +16,6 @@ class Main extends React.Component {
             options: { renderToStaticMarkup }
         });
     }
-
     render() {
         return (
             <React.Fragment>
