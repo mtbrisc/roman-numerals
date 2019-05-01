@@ -1,5 +1,7 @@
 How to Build
 ============
+System build dependency for this app is Node, as most of the modules are built and run with npm
+
 Clientside - React APP
 ----------------------
 inside **./client/** folder:
