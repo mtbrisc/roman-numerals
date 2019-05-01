@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How to Build
+============
+System build dependency for this app is Node, as most of the modules are built and run with npm
 
-## Available Scripts
+Clientside - React APP
+----------------------
+inside **./client/** folder:
+`npm install`
 
-In the project directory, you can run:
+then choose from the following:
+* `npm run develop` - run UI/Unit tests & run hot module reloading development server
+* `npm run start` - run hot module reloading development server
+* `npm run test` - run UI/Unit tests
+* `npm run build` - create production bundle build of app
 
-### `npm start`
+Serverside - Node + Express
+---------------------------
+inside **./server/** folder:
+`npm install`
+`npm run start`
+___
+Engineering & Testing Methodology
+=================================
+For roman numeral reference, used: <https://en.wikipedia.org/wiki/Roman_numerals>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+|Symbol|I|V|X|L|C|D|M|
+|---|---|---|---|---|---|---|---|
+|Value|1|5|10|50|100|500|1000|
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+And decided to use Vinculum bar notation to support numbers from `1 - 1000000`
 
-### `npm test`
+In terms of methodology and focus, mainly focused on the react app, and even ended up calling the conversion function clientside since it runs immediately on input and gives a good user experience that way - but did also make a node endpoint `/romannumeral?query={integer}` according to the general spec. However, since most of focus was for the React UI - here's more details about that:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clientside App Specs & Description
+----------------------------------
 
-### `npm run build`
+- **Create a React based UI which takes a number, and converts it to roman numerals (1-255) and displays it**
+   * As stated above, decided to expand the range from (1-100000). The UI that seemed elegant and good in this instance was on any input, immediately render the corresponding output
+- **Should support full input validation in the UI** -
+    * Used a combination of semantic html properties and custom event listener error checking to ensure input field accepts correct type, and stays within desired range
+- **Should support localization of 2 (or more) languages for the UI, with some mechanism to switch locals** -
+    * Built language dropdown selector in header, updates components reloading the page
+    * Localization managed in JSON for easy testing, scalability
+- **Should support accessibility in the UI (keyboard controls)** -
+    * Follows <https://www.w3.org/WAI/> recommendations, allowing keyboard, mouse, high contrast etc with a minimal and complete UI. The number input field can optionally be interacted with by using arrow keys, as can the langauge dropdown.
+- **Should support UI automation testing (framework your choice)** -
+    * As part of the UI Automation testing - chose to use Jest & Enzyme, some of the most robust and well support React testing frameworks.
+    * UI tests run when any of the following are called: `npm run test` or `npm run develop`
+- **Should support Javascript Unit testing (framework you choice)** -
+    * The JS unit testing also done using jest, and offer upper lower boundary testing, type testing, as well as a range of known / expected values.
+    * Javascript Unit tests also run via `npm run test` or `npm run develop`
+- **Optionally you can choose to run a service in the backend (node or java) to do the conversion, or leverage client side implementation of conversion functionality (your choice)** 
+    * Although in this instance, UI made alot of sense for giving a fast, immediately returned value to the end user - built a sibling service within **./server/** that uses the same computation module that I made for the clientside app
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Package Layout
+==============
+`client` - clientside react app
+* `config` - configs for react tests, environment
+* `public` - compiled assets, styles
+* `scripts` - scripts for hot module reloaded start, test, build
+* `src` - contains main react app as well as react components, modules, localization, tests, and pre-processed styles
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+`server` - lightweight Node + Express app that runs http server on 8080
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dependency Attribution
+======================
+For the roman numeral function, no external dependencies were needed, and reference for the approach was obtained via Wikipedia
 
-### `npm run eject`
+For the React app, used the standard React app recommended build tooling, including eslint, webpack, node-sass, sass-loader, babel, jest, enzyme and for the localizations state management used react-localize-redux
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+For the Node + Express app, only dependecy (besides node) was express
